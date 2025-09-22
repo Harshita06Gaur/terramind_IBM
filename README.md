@@ -52,11 +52,13 @@ For testing the fine-tuned TerraMind model, run:
 terratorch test -c <terramind_config.yaml> --ckpt_path <path/to/your/checkpoint.ckpt>
 ```
 
-We provide two config examples for [Sen1Floods11](https://github.com/cloudtostreet/Sen1Floods11) and [HLS Burn Scars](https://huggingface.co/datasets/ibm-nasa-geospatial/hls_burn_scars):
+We provide some config examples for [Sen1Floods11](https://github.com/cloudtostreet/Sen1Floods11), [HLS Burn Scars](https://huggingface.co/datasets/ibm-nasa-geospatial/hls_burn_scars), and [Multitemporal Crop](https://huggingface.co/datasets/ibm-nasa-geospatial/multi-temporal-crop-classification):
 
 - [terramind_v1_base_sen1floods11.yaml](configs%2Fterramind_v1_base_sen1floods11.yaml)
 
 - [terramind_v1_base_burnscars.yaml](configs%2Fterramind_v1_base_burnscars.yaml)
+
+- [terramind_v1_base_multitemporal_crop.yaml](configs%2Fterramind_v1_base_multitemporal_crop.yaml)
 
 We use the `GenericMultiModalDataModule` in the Sen1Floods11 example and the standard `GenericNonGeoSegmentationDataModule` for the single-modal Burn Scars dataset.
 We simplified the dataset folder structure compared to the original datasets. You can either adjust the paths in the config for the original datasets or download the updated version with the code in the notebooks.
@@ -65,6 +67,10 @@ The relevant parts of the config are explained in more detail in this notebook e
 - [terramind_v1_base_sen1floods11.ipynb](notebooks%2Fterramind_v1_base_sen1floods11.ipynb)
   ([Open in Colab](https://colab.research.google.com/github/IBM/terramind/blob/main/notebooks/terramind_v1_base_sen1floods11.ipynb))
 
+If you plan to use TerraMind with multitemporal data, you can use the temporal wrapper provided by TerraTorch, see example:
+
+- [terramind_v1_base_multitemporal_crop.ipynb](notebooks%2Fterramind_v1_base_multitemporal_crop.ipynb)
+  ([Open in Colab](https://colab.research.google.com/github/IBM/terramind/blob/main/notebooks/terramind_v1_base_multitemporal_crop.ipynb))
 
 ## Thinking-in-Modalities
 
