@@ -31,13 +31,12 @@ Download or clone this repo and create a new environment with the latest version
 python -m venv venv # use python 3.10 or higher
 source venv/bin/activate
 pip install --upgrade pip
-pip install git+https://github.com/IBM/terratorch.git
+pip install terratorch==1.1
 pip install jupyter gdown tensorboard # required for notebook examples
 pip install diffusers==0.30.0  # required for TerraMind generations
 ```
 
-Note: We fixed an error in the multimodal dataset. 
-Please install `terratorch` from main via `pip install git+https://github.com/IBM/terratorch.git` until a new version is released. 
+You can verify the setup by running `terratorch --help`.
 
 ## Fine-tuning
 
