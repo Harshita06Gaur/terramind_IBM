@@ -67,7 +67,7 @@ model:
   init_args:
     model_factory: EncoderDecoderFactory
     model_args:
-      backbone: terramind_v1_base  # large version: terramind_v1_large
+      backbone: terramind_v1_base
       backbone_pretrained: true
       backbone_modalities:
         - S2L2A
@@ -82,7 +82,7 @@ model:
 
       necks:
         - name: SelectIndices
-          indices: [2, 5, 8, 11]  # base version
+          indices: [2, 5, 8, 11]  # tiny, small, or base version
 #          indices: [5, 11, 17, 23]  # large version
         - name: ReshapeTokensToImage
           remove_cls_token: False
