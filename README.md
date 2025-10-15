@@ -16,8 +16,8 @@ We’re honored to present our work at one of the most prestigious conferences i
 # TerraMind 1.0
 
 TerraMind is the first any-to-any generative foundation model for Earth Observation, build by IBM, ESA Φ-lab, and the FAST-EO project.
-We pre-trained a [base version](https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-base) and a [large version](https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-large) of TerraMind, both open-sourced on HuggingFace. 
-The models are fully integrated into the fine-tuning toolkit [TerraTorch](https://ibm.github.io/terratorch/).
+We pre-trained a [tiny](https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-tiny), [small](https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-small), [base](https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-base) and a [large](https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-large) version of TerraMind, all open-sourced on HuggingFace. 
+The models are fully integrated into the fine-tuning toolkit [TerraTorch](https://ibm.github.io/terratorch/), and we provide documentation for TerraMind [here](https://ibm.github.io/terratorch/stable/guide/terramind/).
 
 This repo presents code examples for fine-tuning TerraMind, using the Thinking-in-Modalities approach, and for any-to-any generations.
 We refer to [Hugging Face](https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-base) and [arXiv](https://arxiv.org/abs/2504.11171) for more detailed information. 
@@ -63,13 +63,13 @@ We use the `GenericMultiModalDataModule` in the Sen1Floods11 example and the sta
 We simplified the dataset folder structure compared to the original datasets. You can either adjust the paths in the config for the original datasets or download the updated version with the code in the notebooks.
 The relevant parts of the config are explained in more detail in this notebook example: 
 
-- [terramind_v1_base_sen1floods11.ipynb](notebooks%2Fterramind_v1_base_sen1floods11.ipynb)
-  ([Open in Colab](https://colab.research.google.com/github/IBM/terramind/blob/main/notebooks/terramind_v1_base_sen1floods11.ipynb))
+- [terramind_v1_small_sen1floods11.ipynb](notebooks%2Fterramind_v1_small_sen1floods11.ipynb)
+  ([Open in Colab](https://colab.research.google.com/github/IBM/terramind/blob/main/notebooks/terramind_v1_small_sen1floods11.ipynb))
 
 If you plan to use TerraMind with multitemporal data, you can use the temporal wrapper provided by TerraTorch, see example:
 
-- [terramind_v1_base_multitemporal_crop.ipynb](notebooks%2Fterramind_v1_base_multitemporal_crop.ipynb)
-  ([Open in Colab](https://colab.research.google.com/github/IBM/terramind/blob/main/notebooks/terramind_v1_base_multitemporal_crop.ipynb))
+- [terramind_v1_small_multitemporal_crop.ipynb](notebooks%2Fterramind_v1_small_multitemporal_crop.ipynb)
+  ([Open in Colab](https://colab.research.google.com/github/IBM/terramind/blob/main/notebooks/terramind_v1_small_multitemporal_crop.ipynb))
 
 ## Thinking-in-Modalities
 
@@ -78,7 +78,7 @@ Then, the fine-tuned encoder uses both raw inputs and the generated modalities.
 You simply need to add the suffix `_tim` to the model name and optionally define the TiM modalities:
 
 ```yaml
-      backbone: terramind_v1_base_tim
+      backbone: terramind_v1_small_tim
       backbone_tim_modalities:
         - LULC  # default TiM modality
 ```
@@ -107,13 +107,13 @@ Already working with TerraMind? Submit your use case to the [TerraMind Blue-Sky 
 
 ## Citation
 
-If you use TerraMind in your research, please cite the [TerraMind](https://arxiv.org/abs/2504.11171) pre-print.
+If you use TerraMind in your research, please cite the [TerraMind](https://arxiv.org/abs/2504.11171) paper.
 
 ```text
 @article{jakubik2025terramind,
   title={TerraMind: Large-Scale Generative Multimodality for Earth Observation},
   author={Jakubik, Johannes and Yang, Felix and Blumenstiel, Benedikt and Scheurer, Erik and Sedona, Rocco and Maurogiovanni, Stefano and Bosmans, Jente and Dionelis, Nikolaos and Marsocci, Valerio and Kopp, Niklas and others},
-  journal={ICCV'25},
+  journal={IEEE/CVF International Conference on Computer Vision (ICCV)},
   year={2025}
 }
 ```

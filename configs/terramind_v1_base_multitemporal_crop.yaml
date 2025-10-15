@@ -37,7 +37,7 @@ model:
   init_args:
     model_factory: EncoderDecoderFactory
     model_args:
-      backbone: terramind_v1_small
+      backbone: terramind_v1_base
       backbone_pretrained: true
       backbone_modalities:
         - S2L2A
